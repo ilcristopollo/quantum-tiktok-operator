@@ -1,5 +1,7 @@
 # quantum-tiktok-operator
 
+![logo](assets/logo.png)
+
 ![build](https://img.shields.io/badge/build-passing-brightgreen)
 ![chaos](https://img.shields.io/badge/chaos-unstable-orange)
 ![vibes](https://img.shields.io/badge/vibes-calibrated-blueviolet)
