@@ -1,0 +1,57 @@
+# config/samples/production.yaml
+# Example QuantumHamiltonian for a production workload.
+#
+# Apply with: kubectl apply -f config/samples/production.yaml
+# Monitor with: kubectl get qh -w
+#
+# Expected initial state: superposition
+# Expected steady state: coherent (eventually)
+# Actual steady state: depends on the oracle, the WiFi, and the day of the week
+
+apiVersion: quantum.tiktok/v1
+kind: QuantumHamiltonian
+metadata:
+  name: prod-friday-night
+  namespace: default
+  labels:
+    environment: production
+    risk-level: elevated          # it's Friday
+    oncall-aware: "true"
+  annotations:
+    quantum.tiktok/notes: >
+      Deployed Friday evening against all recommendations.
+      SocialDopamine intentionally high to stress-test the tunneling logic.
+      ChaosEnabled: true. This was a deliberate decision.
+      The on-call engineer has been notified.
+      The on-call engineer has acknowledged the notification.
+      The on-call engineer is no longer responding.
+spec:
+  socialDopamine: 8999          # one below maximum. we have learned.
+  cringeThreshold: 7000         # tunneling expected. this is fine.
+  targetNamespace: default
+  oracleEndpoint: https://oracle.internal/measure
+  chaosEnabled: true
+  annealing:
+    initialTemperature: "1000.0"
+    coolingRate: "0.95"
+    minTemperature: "0.01"
+
+---
+apiVersion: quantum.tiktok/v1
+kind: QuantumHamiltonian
+metadata:
+  name: staging-cat-reels
+  namespace: default
+  labels:
+    environment: staging
+    risk-level: low
+spec:
+  socialDopamine: 420
+  cringeThreshold: 7000
+  targetNamespace: default
+  oracleEndpoint: https://oracle.internal/measure
+  chaosEnabled: false           # staging does not need more chaos than it already has
+  annealing:
+    initialTemperature: "500.0"
+    coolingRate: "0.90"
+    minTemperature: "0.01"
