@@ -32,18 +32,18 @@ Eventual consistency **is** the consistency model. Stop asking questions.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Operator Control Loop                    │
+│                     Operator Control Loop                   │
 │                                                             │
 │   QuantumHamiltonian (CRD)                                  │
 │         │                                                   │
 │         ▼                                                   │
-│   ┌─────────────┐    social    ┌──────────────────┐        │
+│   ┌─────────────┐    social    ┌──────────────────┐         │ 
 │   │  Reconciler │─────────────▶│ SocialAnnealer   │        │
-│   └──────┬──────┘   annealing  └──────────────────┘        │
+│   └──────┬──────┘   annealing  └──────────────────┘         │
 │          │                                                  │
-│          ├──────────────────────▶ OracleClient (✅/💩)     │
+│          ├──────────────────────▶ OracleClient (✅/💩)    │
 │          │                                                  │
-│          └──────────────────────▶ ChaosInjector            │
+│          └──────────────────────▶ ChaosInjector             │ 
 │                                  (decoherence simulation)   │
 └─────────────────────────────────────────────────────────────┘
 ```
